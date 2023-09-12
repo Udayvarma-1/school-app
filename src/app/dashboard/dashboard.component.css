@@ -1,0 +1,21 @@
+.parent{
+    background-color: aquamarine;
+    width: 100vw;
+    height: 100vh;
+}
+.child{
+    background-color: burlywood;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.left{
+    background-color: chocolate;
+    height: 100%;
+    width: 20%;
+}
+.right{
+    background-color: blueviolet;
+    height: 100%;
+    width: 80%;
+}

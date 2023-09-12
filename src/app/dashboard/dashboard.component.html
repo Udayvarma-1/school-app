@@ -1,0 +1,23 @@
+
+
+<div class="parent">
+
+    <div class="child">
+    <div class="left">
+        <h1>Dashboard</h1>
+        <hr>
+        <h3 routerLink="home">HOME</h3>
+        <h3 routerLink="createschool">CREATE SCHOOL</h3>
+        <h3 routerLink="allstudents">ALL STUDENTS</h3>
+
+        <hr>
+        <button (click)="logout()">LOGOUT</button>
+
+    </div>
+    <div class="right">
+        <router-outlet></router-outlet>
+
+    </div>
+
+</div>
+</div>

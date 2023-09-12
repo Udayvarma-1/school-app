@@ -1,0 +1,28 @@
+<table class="table table-dark table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Percentage</th>
+            <th>Class</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Avatar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students" >
+            <td>{{student.name}}</td>
+            <td>{{student.id}}</td>
+            <td>{{student.percentage}}</td>
+            <td>{{student.class}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.Password}}</td>
+            <td>
+                <img src="{{student.avatar}}" alt="">
+            </td>
+        </tr>
+    </tbody>
+
+</table>
