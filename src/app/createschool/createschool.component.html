@@ -1,1 +1,46 @@
-<p>createschool works!</p>
+<!-- FormGroup method -->
+
+<form [formGroup]="allstudentsForm">
+    <div class="parent">
+        <div class="child">
+            <label>Name:</label>
+            <input type="text" formControlName="name">
+            <br><br>
+            <label>Id:</label>
+            <input type="text" formControlName="id">
+            <br><br>
+            <label>percentage:</label>
+            <input type="text" formControlName="percentage">
+            <br><br>
+            <label>Class:</label>
+            <input type="text" formControlName="class">
+            <br><br>
+            <label>Email:</label>
+            <input type="text" formControlName="email">
+            <br><br>
+            <label>Password:</label>
+            <input type="text" formControlName="password">
+            <br><br>
+
+            <!-- nested FormGroup Method -->
+
+            <div formGroupName="address">
+                <label>HNo:</label>
+                <input type="text" formControlName="hno">
+                <br><br>
+                <label>STATE:</label>
+                <input type="text" formControlName="state">
+                <br><br>
+                <label>PIN:</label>
+                <input type="text" formControlName="pin">
+                <br><br>
+
+            </div>
+
+
+            <button class="btn btn-danger" (click)="submit()">Submit</button>
+        </div>
+    </div>
+
+
+</form>
