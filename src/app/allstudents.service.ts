@@ -11,6 +11,26 @@ export class AllstudentsService {
     return this.httpClient.get("https://64b8a34b21b9aa6eb07a012b.mockapi.io/api/students-mini/students")
   }
 
+  // filter Method
+  getFilteredallstudents(search:any):Observable<any>{
+    return this.httpClient.get("https://64b8a34b21b9aa6eb07a012b.mockapi.io/api/students-mini/students?filter="+search);
+  }
+
+  // sort Mrthod
+
+  getSortedallstudents(column:any,order:any):Observable<any>{
+    return this.httpClient.get("https://64b8a34b21b9aa6eb07a012b.mockapi.io/api/students-mini/students?sortBy="+column+"&order="+order);
+  }
+
+  // delete method
+
+  deletestudent(id:any):Observable<any>{
+    return this.httpClient.delete("https://64b8a34b21b9aa6eb07a012b.mockapi.io/api/students-mini/students/"+id)
+  }
+
+  
+
+
 
  
 
