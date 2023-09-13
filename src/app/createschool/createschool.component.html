@@ -34,7 +34,49 @@
                 <label>PIN:</label>
                 <input type="text" formControlName="pin">
                 <br><br>
+            </div>
 
+            <label>type:</label>
+            <input type="radio" name="type" formControlName="type" value="daysScholor">
+            <label>DaysScholor</label>
+            <input type="radio" name="type" formControlName="type" value="residential">
+            <label>Residential</label>
+
+            <div *ngIf="allstudentsForm.get('type')?.value == 'daysScholor'">
+                <label>BusFee:</label>
+                <input type="number" formControlName="busfee">
+                <br>
+            </div>
+
+            <div *ngIf="allstudentsForm.get('type')?.value =='residential'">
+                <label>HostelFee:</label>
+                <input type="number" formControlName="hostelfee">
+                <br>
+            </div>
+            <br><br>
+            
+            <!-- FormArray Method -->
+
+            <button class="btn btn-primary" (click)="addCard()">add card</button>
+
+            <div formArrayName="cards">
+                <div *ngFor="let card of cardsFormArray.controls; let i=index">
+                    <div formGroupName="{{i}}">
+
+                        <label>No:</label>
+                        <input type="number" formControlName="no">
+                        <br><br>
+                        <label>EXP:</label>
+                        <input type="number" formControlName="exp">
+                        <br><br>
+                        <label>CVV:</label>
+                        <input type="number" formControlName="cvv">
+                        <br><br>
+
+                        <button class="btn btn-success" (click)="deletecard(i)">delete</button>
+
+                    </div>
+                </div>
             </div>
 
 
