@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AllstudentsService } from '../allstudents.service';
+import { LiteralPrimitive } from '@angular/compiler';
 
 @Component({
   selector: 'app-allstudents',
@@ -15,6 +16,9 @@ export class AllstudentsComponent {
 
   public column:any = [];
   public order:any = [];
+
+  public limit:any = [];
+  public page:any = [];
 
   constructor(private allstudentsService:AllstudentsService){
     allstudentsService.getallstudents().subscribe(
@@ -66,6 +70,18 @@ export class AllstudentsComponent {
     )
   }
 
+  // pagination Method
+
+  pagedstudent(){
+    return this.allstudentsService.pagedstudent(this.limit,this.page).subscribe(
+      (data:any)=>{
+        this.students = data;
+      },
+      (error:any)=>{
+        alert("Internal server error");
+      }
+    )
+  }
 
   
   
