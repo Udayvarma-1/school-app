@@ -15,9 +15,11 @@
     background-color: chocolate;
     height: 100%;
     width: 20%;
+
 }
 .right{
     background-color: blueviolet;
     height: 100%;
     width: 80%;
+    overflow: auto;
 }

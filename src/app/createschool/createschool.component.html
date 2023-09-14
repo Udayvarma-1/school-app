@@ -5,6 +5,20 @@
         <div class="child">
             <label>Name:</label>
             <input type="text" formControlName="name">
+            <div class="text-danger" *ngIf="allstudentsForm.get('name')?.touched && allstudentsForm.get('name')?.invalid">
+                <p *ngIf="allstudentsForm.get('name')?.errors?.['required']">Name is required</p>
+                <p *ngIf="allstudentsForm.get('name')?.errors?.['minlength']">Name should contain atleast 3 charectors</p>
+            </div>
+            <br><br>
+            <label>Age:</label>
+            <input type="number" formControlName="age">
+            <div class="text-danger" *ngIf="allstudentsForm.get('age')?.touched && allstudentsForm.get('age')?.invalid">
+                <p *ngIf="allstudentsForm.get('age')?.errors?.['required']">Age is invalid</p>
+                <p *ngIf="allstudentsForm.get('age')?.errors?.['min']">age is contain atleast 5 years</p>
+                <p *ngIf="allstudentsForm.get('age')?.errors?.['max']">age is contain  valid for highest 35 years</p>
+
+
+            </div>
             <br><br>
             <label>Id:</label>
             <input type="text" formControlName="id">
@@ -30,6 +44,9 @@
                 <br><br>
                 <label>STATE:</label>
                 <input type="text" formControlName="state">
+                <div class="text-danger" *ngIf="allstudentsForm.get('address')?.get('state')?.touched && allstudentsForm.get('address')?.get('state')?.invalid">
+                    <p *ngIf="allstudentsForm.get('address')?.get('state')?.errors?.['required']">state is required</p>
+                </div>
                 <br><br>
                 <label>PIN:</label>
                 <input type="text" formControlName="pin">
@@ -67,13 +84,19 @@
                         <input type="number" formControlName="no">
                         <br><br>
                         <label>EXP:</label>
-                        <input type="number" formControlName="exp">
+                        <input type="month" formControlName="exp">
                         <br><br>
                         <label>CVV:</label>
                         <input type="number" formControlName="cvv">
+                        <div class="text-danger" *ngIf="cardsFormArray.controls[i]?.get('cvv')?.touched && cardsFormArray.controls[i]?.get('cvv')?.invalid">
+                            <p *ngIf="cardsFormArray.controls[i]?.get('cvv')?.errors?.['required']">CVV is required</p>
+                            <p *ngIf="cardsFormArray.controls[i]?.get('cvv')?.errors?.['min']">CVV atleast 100</p>
+                            <p *ngIf="cardsFormArray.controls[i]?.get('cvv')?.errors?.['max']">CVV atmost 999</p>
+                        </div>
                         <br><br>
 
                         <button class="btn btn-success" (click)="deletecard(i)">delete</button>
+                        <br><br>
 
                     </div>
                 </div>

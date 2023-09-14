@@ -1,0 +1,24 @@
+.parent{
+    width: 100vw;
+    height: auto;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    width: 500px;
+    height: auto;
+    background-color: chartreuse;
+    padding-left: 20px;
+}
+label{
+    width: 90px;
+}
+input{
+    border-radius: 10px;
+    height: 40px;
+}
+button{
+    margin-left: 150px;
+}

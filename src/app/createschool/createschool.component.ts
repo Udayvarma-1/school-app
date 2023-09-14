@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AllstudentsService } from '../allstudents.service';
 
 @Component({
   selector: 'app-createschool',
@@ -11,7 +12,8 @@ export class CreateschoolComponent {
   // FormGroup Method
 
   public allstudentsForm:FormGroup = new FormGroup({
-    name:new FormControl(),
+    name:new FormControl("",[Validators.required,Validators.minLength(3)]),
+    age:new FormControl("",[Validators.required,Validators.min(5),Validators.max(35)]),
     id:new FormControl(),
     percentage:new FormControl(),
     class:new FormControl(),
@@ -21,7 +23,7 @@ export class CreateschoolComponent {
     // nested FormGroup Method
     address:new FormGroup({
       hno:new FormControl(),
-      state:new FormControl(),
+      state:new FormControl("",[Validators.required]),
       pin:new FormControl(),
     }),
     type:new FormControl(),
@@ -41,7 +43,7 @@ export class CreateschoolComponent {
       new FormControl({
         no:new FormControl(),
         exp:new FormControl(),
-        cvv:new FormControl()
+        cvv:new FormControl("",[Validators.required,Validators.min(100),Validators.max(999)])
       })
     )
   }
@@ -52,10 +54,22 @@ export class CreateschoolComponent {
 
 
 
+  // constructor
 
+  constructor(private allstudentsServices:AllstudentsService){}
 
   submit(){
-    console.log(this.allstudentsForm)
+    console.log(this.allstudentsForm);
+    this.allstudentsServices.createstudent(this.allstudentsForm.value).subscribe(
+      (data:any)=>{
+        alert("user created successfully")
+      },
+      (error:any)=>{
+        alert("Internal server error")
+      }
+    )
+
+    
   }
 
 }
