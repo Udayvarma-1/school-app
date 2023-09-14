@@ -15,7 +15,7 @@ export class CreateschoolComponent {
     name:new FormControl("",[Validators.required,Validators.minLength(3)]),
     age:new FormControl("",[Validators.required,Validators.min(5),Validators.max(35)]),
     id:new FormControl(),
-    percentage:new FormControl(),
+    // percentage:new FormControl(),
     class:new FormControl(),
     email:new FormControl(),
     password:new FormControl(),
@@ -32,7 +32,8 @@ export class CreateschoolComponent {
 
     // Formarray Mothed
 
-    cards:new FormArray([])
+    cards:new FormArray([]),
+    marks:new FormArray([]),
   });
 
   get cardsFormArray(){
@@ -50,6 +51,31 @@ export class CreateschoolComponent {
   deletecard(i:number){
     this.cardsFormArray.removeAt(i);
   }
+
+  // formArray method
+
+  get marksFormArray(){
+    return this.allstudentsForm.get('marks') as FormArray;
+  }
+  addstudentmarks(){
+    this.marksFormArray.push(
+      new FormControl({
+        marks:new FormControl(),
+        year:new FormControl(),
+        percentage:new FormControl(),
+
+      })
+    )
+  }
+  deletemarks(i:number){
+    this.marksFormArray.removeAt(i);
+  }
+
+
+ 
+  
+
+ 
 
 
 
